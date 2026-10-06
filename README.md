@@ -87,3 +87,11 @@ AI assistance was used during development for implementation guidance, debugging
 
 "Build a frontend-only tender package builder that loads requirements.json, validates and matches PDF documents, detects duplicate file content, checks expiry dates against the submission deadline, supports Bangla and English, and generates a combined PDF with an English cover page and Page X of Y footer."
 
+
+## Live Demo
+
+https://ai-dev-fest-2026-kazi-aurpon-4edoxhvpx-aurpon.vercel.app
+
+## GitHub Repository
+
+https://github.com/kaziaurpon/AI-Dev-Fest-2026-Kazi_Aurpon
