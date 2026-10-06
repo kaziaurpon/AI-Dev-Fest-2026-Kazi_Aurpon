@@ -75,6 +75,36 @@ Statuses update immediately when document matching or expiry information changes
 
 ### 7. PDF Package Generation
 
+
+The repository contains the required final submission artifacts.
+
+### Final Generated Tender Package
+
+**Tender ID:** `T-2026-0417`
+
+[📄 Open / Download Final Tender Package](https://github.com/kaziaurpon/AI-Dev-Fest-2026-Kazi_Aurpon/blob/main/output/T-2026-0417_Package.pdf)
+
+The PDF is the final combined tender package generated from the provided sample documents.
+
+### Document Status Screenshot
+
+![Document Status Screenshot](https://github.com/kaziaurpon/AI-Dev-Fest-2026-Kazi_Aurpon/blob/main/screenshots/statuses.png)
+
+[🖼️ Open Full-Size Screenshot](https://github.com/kaziaurpon/AI-Dev-Fest-2026-Kazi_Aurpon/blob/main/screenshots/statuses.png)
+
+The screenshot demonstrates the document status interface of the application.
+
+---
+
+## 🌐 Language Support
+
+The complete application interface supports:
+
+- English
+- বাংলা (Bangla)
+
+Document names are displayed using the appropriate `title_en` or `title_bn` value.
+
 - Package generation is disabled while blocking issues exist
 - Shows why the package cannot be generated
 - Generates a combined PDF when all blocking issues are resolved
