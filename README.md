@@ -14,78 +14,83 @@ https://github.com/kaziaurpon/AI-Dev-Fest-2026-Kazi_Aurpon
 
 ## 📌 Project Overview
 
-Tender Package Builder helps bidders organize required tender documents, validate their submission status, detect duplicate documents, manage expiry dates, and generate a final combined PDF package.
+Tender Package Builder helps bidders organize required tender documents, validate submission requirements, detect duplicate documents, manage expiry dates, and generate a final combined PDF package.
 
-The application runs entirely in the browser and does not require a backend, database, or user login.
+The application runs entirely in the browser without requiring a backend, database, or user login.
 
-It supports both **English and Bangla**, making the workflow easier for users working with bilingual tender requirements.
+It supports both **English and Bangla** for a more accessible tender preparation workflow.
 
 ---
 
 ## ✨ Key Features
 
-### Tender Requirements
+### 1. Tender Requirements
+
 - Loads tender requirements from `requirements.json`
 - Displays tender ID, title, procuring entity, bidder name, and submission deadline
 - Displays required documents according to their defined order
-- Supports English and Bangla document titles
+- Supports English and Bangla document titles using `title_en` and `title_bn`
 
-### PDF Document Management
-- Upload multiple PDF documents
-- Displays uploaded filename, page count, and file information
+### 2. PDF Document Management
+
+- Uploads multiple PDF documents
+- Displays uploaded filenames and page counts
 - Clearly rejects non-PDF files
-- Allows users to remove uploaded documents
-- Safely handles invalid or unsupported PDF files
+- Allows uploaded files to be removed
+- Handles invalid or unsupported PDF files safely
 
-### Document Matching
-- Matches uploaded PDF files with required tender documents
+### 3. Document Matching
+
+- Matches uploaded PDFs with required tender documents
 - Maintains one-to-one matching between files and required documents
-- Allows users to change or undo document matching
-- Prevents the same document from being assigned to multiple requirements
+- Allows document matching to be changed or undone
+- Prevents one file from being matched to multiple documents
 
-### Expiry Date Validation
+### 4. Expiry Date Validation
+
 - Supports expiry dates for documents where required
 - Requests an expiry date when `has_expiry` is enabled
 - Compares document expiry dates with the tender submission deadline
-- Treats documents expiring on the submission deadline as valid
+- Treats an expiry date equal to the submission deadline as valid
 
-### Duplicate Detection
+### 5. Duplicate Detection
+
 - Detects exact-content duplicate PDF files
-- Uses file content rather than filename for duplicate detection
+- Detects duplicates even when filenames are different
 - Prevents duplicate content from being matched to different required documents
 
-### Document Status
+### 6. Document Status
+
 Each required document receives exactly one status:
 
-- **Missing** — Required document has not been provided
-- **Expiry Date Needed** — Required expiry date has not been entered
-- **Expired** — Document expires before the submission deadline
-- **Not Provided** — Optional document has not been provided
-- **OK** — Document satisfies all requirements
+| Status | Meaning | Blocking |
+|---|---|---|
+| **Missing** | Required document has not been provided | Yes |
+| **Expiry Date Needed** | Required expiry date has not been entered | Yes |
+| **Expired** | Document expires before the submission deadline | Yes |
+| **Not Provided** | Optional document has not been provided | No |
+| **OK** | Document satisfies all requirements | No |
 
-Blocking statuses are clearly identified and prevent package generation.
+Statuses update immediately when document matching or expiry information changes.
 
+### 7. PDF Package Generation
 
+- Package generation is disabled while blocking issues exist
+- Shows why the package cannot be generated
+- Generates a combined PDF when all blocking issues are resolved
+- Creates an English cover page
+- Includes tender information and included documents
+- Arranges documents according to their required order
+- Preserves the original page order of each document
+- Skips optional documents that were not provided
+- Adds a readable footer to every page
+- Uses the required filename format:
 
-```md
-## 📦 Submission Artifacts
+`<tender_id>_Package.pdf`
 
-The repository contains the required final submission artifacts.
+### 8. Language Support
 
-### Final Generated Package
-
-[📄 Open / Download Final Tender Package](output/T-2026-0417_Package.pdf)
-
-This is the final combined tender package generated from the provided sample documents.
-
-### Document Status Screenshot
-
-![Document Status Screenshot](screenshots/statuses.png)
-
-This screenshot demonstrates the document status interface of the application.
-
-### 🌐 Language Support
-The complete application interface supports:
+The application supports:
 
 - English
 - বাংলা (Bangla)
@@ -104,7 +109,7 @@ Document names are displayed using the appropriate `title_en` or `title_bn` valu
 - Browser-based PDF processing
 - SHA-256 content hashing for duplicate detection
 
-No backend or external database is required.
+The application is designed as a frontend-only solution and does not require a backend or external database.
 
 ---
 
