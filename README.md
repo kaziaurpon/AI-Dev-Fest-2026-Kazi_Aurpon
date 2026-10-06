@@ -65,18 +65,24 @@ Each required document receives exactly one status:
 
 Blocking statuses are clearly identified and prevent package generation.
 
-### PDF Package Generation
-- Generate button remains disabled while blocking issues exist
-- Creates a combined tender package when all required conditions are satisfied
-- Generates an English cover page
-- Includes tender information and included documents
-- Preserves the original document page order
-- Arranges documents according to their required order
-- Skips optional documents that were not provided
-- Adds a readable footer to every page
-- Uses the required filename format:
 
-`<tender_id>_Package.pdf`
+
+```md
+## 📦 Submission Artifacts
+
+The repository contains the required final submission artifacts.
+
+### Final Generated Package
+
+[📄 Open / Download Final Tender Package](output/T-2026-0417_Package.pdf)
+
+This is the final combined tender package generated from the provided sample documents.
+
+### Document Status Screenshot
+
+![Document Status Screenshot](screenshots/statuses.png)
+
+This screenshot demonstrates the document status interface of the application.
 
 ### 🌐 Language Support
 The complete application interface supports:
