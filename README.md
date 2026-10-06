@@ -61,3 +61,29 @@ AI-assisted development was used. The most useful prompt focused on implementing
 ## License
 
 MIT
+
+## Submission Checklist
+
+The repository includes the final package generated from the provided sample pack:
+
+- `output/T-2026-0417_Package.pdf`
+- `screenshots/statuses.png`
+
+### Main Workflow
+
+1. Load `requirements.json`
+2. Upload and validate PDF documents
+3. Match files to required documents
+4. Enter expiry dates where required
+5. Review document statuses
+6. Resolve all blocking issues
+7. Generate and download the final tender package
+
+### AI Usage
+
+AI assistance was used during development for implementation guidance, debugging, UI refinement, validation logic, and PDF package generation.
+
+### Useful AI Prompt
+
+"Build a frontend-only tender package builder that loads requirements.json, validates and matches PDF documents, detects duplicate file content, checks expiry dates against the submission deadline, supports Bangla and English, and generates a combined PDF with an English cover page and Page X of Y footer."
+
