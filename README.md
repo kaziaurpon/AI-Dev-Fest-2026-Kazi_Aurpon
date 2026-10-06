@@ -1,97 +1,128 @@
-# DevFest Tender Package Builder
+# Tender Package Builder
 
-A frontend-only Tender Document Package Builder for AI DevFest. It runs entirely in the browser and processes tender PDFs locally.
+A frontend-only web application for preparing, validating, and generating complete tender submission packages from PDF documents.
 
-## Main features
-
-- Load and validate `requirements.json` and show tender details sorted by document order.
-- Upload up to 30 PDFs with a 50 MB total limit.
-- Show every uploaded file name, page count and SHA-256 fingerprint.
-- Reject non-PDF, unreadable or password-protected PDFs with a clear message.
-- Remove uploaded files at any time.
-- One-to-one document matching with change/undo support.
-- Exact duplicate detection by file content; duplicate copies cannot be assigned to different requirements.
-- Expiry-date entry and immediate validation against the tender submission deadline.
-- Exact required statuses: Missing, Expiry date needed, Expired, Not provided, OK.
-- Generate button remains disabled while a blocking status exists.
-- Create a combined PDF in requirement order with an English cover page and safe bottom footer on every page.
-- Download as `<tender_id>_Package.pdf`.
-- Complete English/Bangla UI with document names switching between `title_en` and `title_bn`.
-- Filename-based auto-match as a bonus feature.
-
-## Run locally
-
-```bash
-npm install
-npm run dev
-```
-
-Open the local Vite URL in Google Chrome.
-
-## Build
-
-```bash
-npm run build
-npm run preview
-```
-
-## Tech
-
-- React + Vite
-- pdf-lib
-- Browser APIs: File API, Web Crypto SHA-256, Blob/Object URL
-- No participant-controlled backend, database or online storage
-
-## Important contest note
-
-Create the required public repository during the allowed setup time and do not commit project code before T+0. Keep at least 3 commits, with a short change description and the AI prompt used in each commit message. Finish the final eligible commit and public HTTPS deployment by T+90.
-
-## Sample output
-
-`output/T-2026-0417_Package.pdf` is included as a sample-pack result after resolving the sample pack's issues.
-
-## Screenshots
-
-`screenshots/statuses.png` shows the document checklist/status view for the sample scenario.
-
-## AI tools
-
-AI-assisted development was used. The most useful prompt focused on implementing the Tender Package Builder main tasks, strict status rules, browser-only PDF processing, exact duplicate detection and safe PDF footer generation.
-
-## License
-
-MIT
-
-## Submission Checklist
-
-The repository includes the final package generated from the provided sample pack:
-
-- `output/T-2026-0417_Package.pdf`
-- `screenshots/statuses.png`
-
-### Main Workflow
-
-1. Load `requirements.json`
-2. Upload and validate PDF documents
-3. Match files to required documents
-4. Enter expiry dates where required
-5. Review document statuses
-6. Resolve all blocking issues
-7. Generate and download the final tender package
-
-### AI Usage
-
-AI assistance was used during development for implementation guidance, debugging, UI refinement, validation logic, and PDF package generation.
-
-### Useful AI Prompt
-
-"Build a frontend-only tender package builder that loads requirements.json, validates and matches PDF documents, detects duplicate file content, checks expiry dates against the submission deadline, supports Bangla and English, and generates a combined PDF with an English cover page and Page X of Y footer."
-
-
-## Live Demo
+## 🚀 Live Demo
 
 https://ai-dev-fest-2026-kazi-aurpon-4edoxhvpx-aurpon.vercel.app
 
-## GitHub Repository
+## 💻 GitHub Repository
 
 https://github.com/kaziaurpon/AI-Dev-Fest-2026-Kazi_Aurpon
+
+---
+
+## 📌 Project Overview
+
+Tender Package Builder helps bidders organize required tender documents, validate their submission status, detect duplicate documents, manage expiry dates, and generate a final combined PDF package.
+
+The application runs entirely in the browser and does not require a backend, database, or user login.
+
+It supports both **English and Bangla**, making the workflow easier for users working with bilingual tender requirements.
+
+---
+
+## ✨ Key Features
+
+### Tender Requirements
+- Loads tender requirements from `requirements.json`
+- Displays tender ID, title, procuring entity, bidder name, and submission deadline
+- Displays required documents according to their defined order
+- Supports English and Bangla document titles
+
+### PDF Document Management
+- Upload multiple PDF documents
+- Displays uploaded filename, page count, and file information
+- Clearly rejects non-PDF files
+- Allows users to remove uploaded documents
+- Safely handles invalid or unsupported PDF files
+
+### Document Matching
+- Matches uploaded PDF files with required tender documents
+- Maintains one-to-one matching between files and required documents
+- Allows users to change or undo document matching
+- Prevents the same document from being assigned to multiple requirements
+
+### Expiry Date Validation
+- Supports expiry dates for documents where required
+- Requests an expiry date when `has_expiry` is enabled
+- Compares document expiry dates with the tender submission deadline
+- Treats documents expiring on the submission deadline as valid
+
+### Duplicate Detection
+- Detects exact-content duplicate PDF files
+- Uses file content rather than filename for duplicate detection
+- Prevents duplicate content from being matched to different required documents
+
+### Document Status
+Each required document receives exactly one status:
+
+- **Missing** — Required document has not been provided
+- **Expiry Date Needed** — Required expiry date has not been entered
+- **Expired** — Document expires before the submission deadline
+- **Not Provided** — Optional document has not been provided
+- **OK** — Document satisfies all requirements
+
+Blocking statuses are clearly identified and prevent package generation.
+
+### PDF Package Generation
+- Generate button remains disabled while blocking issues exist
+- Creates a combined tender package when all required conditions are satisfied
+- Generates an English cover page
+- Includes tender information and included documents
+- Preserves the original document page order
+- Arranges documents according to their required order
+- Skips optional documents that were not provided
+- Adds a readable footer to every page
+- Uses the required filename format:
+
+`<tender_id>_Package.pdf`
+
+### 🌐 Language Support
+The complete application interface supports:
+
+- English
+- বাংলা (Bangla)
+
+Document names are displayed using the appropriate `title_en` or `title_bn` value.
+
+---
+
+## 🛠️ Technology Stack
+
+- React
+- Vite
+- JavaScript
+- HTML5
+- CSS3
+- Browser-based PDF processing
+- SHA-256 content hashing for duplicate detection
+
+No backend or external database is required.
+
+---
+
+## 📂 Project Structure
+
+```text
+AI-Dev-Fest-2026-Kazi_Aurpon/
+│
+├── public/
+│
+├── src/
+│   ├── main.jsx
+│   └── styles.css
+│
+├── output/
+│   └── T-2026-0417_Package.pdf
+│
+├── screenshots/
+│   └── statuses.png
+│
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+├── README.md
+├── LICENSE
+└── .gitignore
